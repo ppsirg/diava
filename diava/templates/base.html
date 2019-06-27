@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/pure-min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grids-responsive-old-ie-min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grids-responsive-min.css' %}">
+    {% block custom_head %}{% endblock custom_head %}
+  </head>
+  <body>
+    {% block content %}{% endblock content %}
+  </body>
+  {% block ending_scripts %}{% endblock ending_scripts %}
+</html>
