@@ -1,4 +1,4 @@
-from django.generic.views import *
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from .forms import EquipoForm
 
 
@@ -8,13 +8,16 @@ class EquipoCreateView(CreateView):
     success_url = 'SUCCESS_URL'
     template_name = 'TEMPLATE_NAME'
 
+
 class EquipoUpdateView(UpdateView):
     model = Equipo
     template_name = 'TEMPLATE_NAME'
 
+
 class EquipoDeleteView(DeleteView):
     model = Equipo
     template_name = 'TEMPLATE_NAME'
+
 
 class EquipoDetailView(DetailView):
     model = Equipo

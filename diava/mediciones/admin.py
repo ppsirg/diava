@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import ConfiguracionSensor, Medicion
 
-# Register your models here.
+admin.site.register(ConfiguracionSensor)
+admin.site.register(Medicion)

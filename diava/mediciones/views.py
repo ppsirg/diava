@@ -1,4 +1,4 @@
-from django.generic.views import *
+from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 
 
 class MedicionCreateView(CreateView):

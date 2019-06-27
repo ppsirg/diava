@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Validacion periodo {{object.fecha_inicio_min}} - {{object.fecha_fin_min}}{% endblock title %}
+
+{% block custom_head %}
+<link rel="stylesheet" href="{% static '/css/dashboard.css' %}">
+{% endblock custom_head %}
+
+{% block content %}
+
+<div class="content-full">
+
+<div class="indicadores">
+
+</div>
+
+<div class="lista-equipos">
+
+</div>
+
+</div>
+
+{% endblock content %}

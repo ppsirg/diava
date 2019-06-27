@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Equipo, Documento
 
-# Register your models here.
+admin.site.register(Documento)
+admin.site.register(Equipo)
