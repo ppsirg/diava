@@ -4,19 +4,42 @@
 {% block title %}Validacion periodo {{object.fecha_inicio_min}} - {{object.fecha_fin_min}}{% endblock title %}
 
 {% block custom_head %}
-<link rel="stylesheet" href="{% static '/css/dashboard.css' %}">
+<script src="{% static 'fontawesome-free-5.9.0-web/js/all.min.js' %}" charset="utf-8"></script>
+<link rel="stylesheet" href="{% static 'fontawesome-free-5.9.0-web/css/all.min.css' %}">
 {% endblock custom_head %}
 
 {% block content %}
 
-<div class="content-full">
+<div class="content-full pure-u-1">
 
-<div class="indicadores">
-
+<div class="indicadores pure-u-1">
+  <h1>mediciones {{object.fecha_inicio_min}} - {{object.fecha_fin_min}}</h1>
+  <ul>
+    <li>responsable: {{object.responsable}}</li>
+    <li>porcentaje de equipos completados: {{object.porcentaje_completado}}%</li>
+    <li>porcentaje de equipos en buen estado: {{object.porcentaje_buen_estado}}%</li>
+  </ul>
 </div>
 
-<div class="lista-equipos">
+<div class="lista-equipos pure-u-1">
+  <table class="pure-table">
+    <thead>
+      <th>equipo</th><th>estado</th>
+      <th>editar</th><th>ver detalle</th><th>subir mediciones</th><th>excluir</th>
+    </thead>
+    <tbody>
+      {% for item in object.reportes %}
+      <tr>
+        <td>{{item.equipo}}</td><td>{{item.estado}}</td>
+        <td><button class="pure-button" type="button" name="btn-ed-{{item.id}}"><i class="fas fa-edit"></i></button></td>
+        <td><button class="pure-button" type="button" name="btn-dt-{{item.id}}"><i class="fa fa-id-card"></i></button></td>
+        <td><button class="pure-button" type="button" name="btn-ul-{{item.id}}"><i class="fa fa-file-upload"></i></button></td>
+        <td><button class="pure-button" type="button" name="btn-hd-{{item.id}}"><i class="fas fa-ban"></i></button></td>
+      </tr>
+      {% endfor %}
 
+    </tbody>
+  </table>
 </div>
 
 </div>

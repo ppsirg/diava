@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}detalle {{object.equipo}} {{object.date}}{% endblock title %}
+
+{% block content %}
+
+<div class="content-full pure-u-1">
+
+  <h2>Equipo: {{object.equipo}}</h2>
+  {% for medicion in object.mediciones %}
+  <ul>
+    <li>Archivo de medicion: {{medicion.nombre}}</li>
+    <li>Fecha: {{medicion.fecha}}</li>
+  </ul>
+  <img src="{{medicion.grafico}}" alt="" style="width: 600px;">
+  <table class="pure-table">
+    <thead>
+      <th>Sensor</th>
+      <th>Promedio</th>
+      <th>Desviacion</th>
+      <th>Incertidumbre</th>
+      <th>Incertidumbre Combinada</th>
+      <th>Error Promedio</th>
+    </thead>
+    <tbody>
+      {% for fila in medicion.datos_tabla %}
+      <tr>
+        <td>{{fila.sensor}}</td>
+        <td>{{fila.promedio}}</td>
+        <td>{{fila.desviacion}}</td>
+        <td>{{fila.incertidumbre}}</td>
+        <td>{{fila.incertidumbre_combinada}}</td>
+        <td>{{fila.error_promedio}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endfor %}
+
+
+</div>
+
+{% endblock content %}

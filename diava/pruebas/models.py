@@ -8,6 +8,7 @@ from datetime import timedelta
 class RondaReporte(models.Model):
     equipo = models.ForeignKey(Equipo)
     estado = models.CharField(blank=True, max_length=100)
+    mediciones = models.ManyToManyField(Medicion)
     date = models.DateField(default=datetime.datetime.today)
     historial = models.TextField(blank=True)
 
@@ -26,15 +27,15 @@ class RondaPruebas(models.Model):
     responsable = models.ForeignKey(Usuario)
     equipos = models.ManyToManyField(RELATED_MODEL)
     reportes = models.ForeignKey(RondaReporte)
-    porcentaje_completado = forms.FloatField()
+    porcentaje_completado = models.FloatField()
+    porcentaje_buen_estado = models.FloatField()
 
     def default_ending_date(self):
         return datetime.datetime.today+timedelta(days=settings.DURACION_VIGENCIA_VALIDACION)
 
-
     def fecha_inicio_min(self):
         return self.fecha_inicio.strftime('%b/%Y')
-    
+
     def fecha_fin_min(self):
         return self.fecha_fin.strftime('%b/%Y')
 
