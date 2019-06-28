@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 from usuarios.models import *
 from equipos.models import *
 from django.conf import settings
 
 from datetime import timedelta
+
 
 class RondaReporte(models.Model):
     equipo = models.ForeignKey(Equipo)
